@@ -13,7 +13,7 @@ pipeline {
 //      #################################################
 //      #               Organizacion Git                #
 //      #################################################
-        git_organizacion = "${GIT_ORGA}" // tu GIT // achede22 
+        git_organizacion = "achede22" // tu GIT // achede22  // "${GIT_ORGA}"
 //      #################################################
 //      #       proyecto en donde se va a ejecutar      #
 //      #################################################
