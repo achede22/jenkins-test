@@ -1,0 +1,37 @@
+<settings>
+        <pluginGroups>
+                <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.0.2</version>
+        </pluginGroups>
+    <profiles>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <sonar.host.url>${env.SONAR}</sonar.host.url>
+        <sonar.login>6655b5996cb00e7e03dca8ca0ba139c76f26b4f9</sonar.login>
+        <sonar.projectName>${APP_NAME}</sonar.projectName>
+
+            </properties>
+        </profile>
+     </profiles>
+<mirrors>
+                <mirror>
+                        <id>nexus</id>
+                        <mirrorOf>*</mirrorOf>
+                        <url>${env.NEXUS}repository/maven-public
+                        </url>
+                </mirror>
+        </mirrors>
+        <servers>
+                <server>
+                        <id>nexus</id>
+                        <username>dev1</username>
+                        <password>dev1</password>
+                </server>
+        </servers>
+
+</settings>

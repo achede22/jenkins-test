@@ -1,0 +1,13 @@
+GRUPO_ms-supervisor
+GRUPO_ms-priorizacion-cliente-ticket
+GRUPO_ms-pantallas-dinamicas
+GRUPO_ms-datos-operador
+GRUPO_ms-consulta-datos-persona-empresa
+GRUPO_ms-televisor
+GRUPO_ms-server-comunicacion
+GRUPO_ms-tickets
+GRUPO_impresion-ticket
+GRUPO_cqrs
+GRUPO_ui
+GRUPO_abm
+ESCANEAR TODOS LOS REPO

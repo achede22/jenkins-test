@@ -1,0 +1,44 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  creationTimestamp: '2019-03-14T15:14:24Z'
+  name: sonarqube-analisis
+  namespace: sacatuturno-dev
+  resourceVersion: '103668842'
+  selfLink: >-
+    /apis/build.openshift.io/v1/namespaces/sacatuturno-dev/buildconfigs/sonarqube-analisis
+  uid: da279870-466b-11e9-8cf4-005056007804
+spec:
+  nodeSelector: {}
+  output: {}
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    git:
+      ref: master
+      uri: 'http://git.bancogalicia.com.ar/SacaTuTurno/devops.git'
+    type: Git
+  strategy:
+    jenkinsPipelineStrategy:
+      env:
+        - name: GIT_PROYECTO
+          value: sacatuturno-dev
+        - name: GIT_ORGA
+          value: SacaTuTurno
+        - name: GIT_REPO
+          value: ms-tickets
+        - name: GIT_BRANCH
+          value: master
+        - name: APP_NAME
+          value: ms-tickets
+        - name: LANGUAGE
+          value: dotnet-22
+      jenkinsfilePath: pipelines/sonar.js
+    type: JenkinsPipeline
+  triggers:
+    - generic:
+        secret: Secret
+      type: Generic
+status:
+  lastVersion: 0
