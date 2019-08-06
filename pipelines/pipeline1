@@ -1,0 +1,28 @@
+pipeline {
+        agent { node { label "python" } } 
+        }
+
+        stages{
+                stage ('Descargar Repos')
+                {
+                        sh 'git config --global user.email "jenkins"'
+                        sh 'git config --global user.name "jenkins"'
+                        
+                        // https://github.com/testcontainers/testcontainers-python
+                        sh 'echo "--------------------------------------- Descargar Repo"'
+                        sh 'git clone --depth=1 --branch https://github.com/testcontainers/testcontainers-python'
+                        
+                        // https://github.com/achede22/jenkins-test 
+                        sh 'echo "--------------------------------------- Descargar Repo DevOps"'
+                        sh 'git clone --depth=1 --branch master  https://github.com/achede22/jenkins-test.git'
+                }
+         
+                stage("Crear Imagen")
+                {
+                        timeout(time:600, unit:'SECONDS'){
+                        sh 'echo "------------------------------------------------------------- Image Build"'
+                        sh 'bash jenkins-test/scripts/python/crear-imagen.sh'
+                        }
+                }
+         
+         }
