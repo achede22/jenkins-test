@@ -89,7 +89,7 @@ objects:
     labels: name:${PARAM_APP_NAME}
     name: ${PARAM_APP_NAME}
   spec:
-    host: ${PARAM_APP_NAME}-${PARAM_PROJ_NAME}.devopenshift.bancogalicia.com.ar
+    host: ${PARAM_APP_NAME}-${PARAM_PROJ_NAME}.test.com.ar
     path: /
     to:
       kind: Service
